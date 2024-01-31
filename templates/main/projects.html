@@ -12,15 +12,15 @@
     <div id="project-display">
         <div class="project_panels">
             <center>
-                <h3>Hang Man Game</h3>
+                <h3>Rest API Game</h3>
             </center>
             <ul>
-                <li>Minigame</li>
-                <li>NLTK Library, Rest API, Axios, HTML, CSS, React.js, Bootstrap</li>
+                <li>Hangman styled minigame</li>
+                <li>Django Rest API, Fetch, HTML, CSS, React.js, Bootstrap</li>
                 <li>
-                    This minigame uses Django on the backend and React.js on the frontend. The frontend receives 
-                    NLTK library generated words for users to play with via requests sent to the backend API.
-                    The JS library Axios is used to establish a connection between the frontend and backend API.
+                    This minigame uses Django on the backend and React.js on the frontend. Users make
+                    requests via Django Rest API for a randomly selected word of chosen length from a text file in S3 Bucket.
+                    React state passed between multiple routes, providing a multi-layered aspect to the game.
                 </li>
             </ul>
             <center><a href="{% url 'hangman:hangman-front' %}"><button>Go</button></center></a>
@@ -37,7 +37,7 @@
                     Utilzied Django's authentication utility to implement a social-media based site that allows users to communicate,
                     customize their profile, and give feedback to other users' posts. CRUD operations are leveraged to ensure the site
                     can execute all functionality commonly associated with social media sites, like deleting, voting, commenting, and creating posts.
-                    Queries are made to SQLite DB using Django's object oriented database abstraction, and Django templating language is leveraged to make dynamic queries
+                    Queries are made to PostgreSQL DB using Django's object oriented database abstraction, and Django templating language is leveraged to make dynamic queries
                     to the DB on specific HTML pages.
                 </li>
             </ul>
