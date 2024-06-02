@@ -1,18 +1,17 @@
-<div class="bio bg-light">
+<div inViewport [inViewportOptions]="{threshold: [0]}" (inViewportAction)="onIntersection($event)" class="bio bg-light" id="bioSection">
     <div id="bio_content">
-        <div [@pullIn]="onBioSection ? 'left' : 'leftResting'" id="bio_text">
-        <h1>Hi, my name is Adam!</h1>
-        <p>I am a Computer Science student,
-            interested in Software Development!
-        </p>
-        <img alt="" class="lang_icons" src="">
-        <img alt="" class="lang_icons" src="">
-        <img alt="" class="lang_icons" src="">
+        <div [@pullIn]="onBioSection ? 'leftResting' : 'leftPull'" id="bio_text">
+            <h1>Hi, my name is Adam!</h1>
+            <p>I am a Computer Science student,
+                interested in Software Development!
+            </p>
+            <img alt="" class="lang_icons" src="">
+            <img alt="" class="lang_icons" src="">
+            <img alt="" class="lang_icons" src="">
+        </div>
     </div>
-</div>
-    <div [@pullIn]="onBioSection ? 'right' : 'rightResting'" id="resume_pic_section">
-        <img [@bounce]="isBouncing ? 'bounceUp' : 'bounceDown'" alt="" id="resume_pic"  src="">
+    <div [@pullIn]="onBioSection ? 'rightResting' : 'rightPull'" id="resume_pic_section">
+        <img [ngClass]="{'bounceObj' : onBioSection}" alt="" id="resume_pic"  src="">
     </div>
 </div>
 <button type="button" (click)="toggleOnBioSection()">{{onBioSection ? 'True' : 'False'}}</button>
-<button type="button" (click)="toggleBounce()">{{isBouncing ? 'True' : 'False'}}</button>
