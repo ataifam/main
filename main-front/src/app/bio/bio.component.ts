@@ -17,14 +17,13 @@ import { CommonModule } from '@angular/common';
   templateUrl: './bio.component.html',
   styleUrl: './bio.component.css',
   animations: [
-    trigger('pullIn', [
-      state('rightPull', style({ opacity: '0%', transform: 'translateX(100px)' })),
-      state('leftPull', style({ opacity: '0%', transform: 'translateX(-100px)' })),
-      state('leftResting', style({ opacity: '100%', transform: 'translateX(0px)' })),
-      state('rightResting', style({ opacity: '100%', transform: 'translateX(0px)' })),
+    trigger('toggleSlide', [
+      state('leave', style({ opacity: '0%', transform: 'translateX({{ leaveDestination }})' }),
+        {params: {leaveDestination: ''}}),
+      state('enter', style({ opacity: '100%', transform: 'translateX({{ enterDestination }})' }), 
+        {params: {enterDestination: ''}}),
 
-      transition('rightPull <=> rightResting', [animate('1s')]),
-      transition('leftPull <=> leftResting', [animate('1s')]),
+      transition('enter <=> leave', [animate('1s')]),
     ]),
    ]})
     

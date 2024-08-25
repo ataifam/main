@@ -10,6 +10,9 @@ import {
   style,
   animate,
   transition,
+  animation,
+  group,
+  query,
   // ...
 } from '@angular/animations';
 

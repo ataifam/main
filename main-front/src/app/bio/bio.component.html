@@ -1,17 +1,28 @@
 <div inViewport [inViewportOptions]="{threshold: [0]}" (inViewportAction)="onIntersection($event)" class="bio bg-light" id="bioSection">
     <div id="bio_content">
-        <div [@pullIn]="onBioSection ? 'leftResting' : 'leftPull'" id="bio_text">
+        <div id="bio_text" [@toggleSlide]="{
+            value: onBioSection ? 'enter' : 'leave',
+            params: {
+                enterDestination: '0px',
+                leaveDestination: '-100px'
+            }
+        }">
             <h1>Hi, my name is Adam!</h1>
             <p>I am a Computer Science student,
                 interested in Software Development!
             </p>
-            <img alt="" class="lang_icons" src="">
-            <img alt="" class="lang_icons" src="">
-            <img alt="" class="lang_icons" src="">
+            <img alt="" id="lang_icons" src="github.jpg">
+            <img alt="" id="lang_icons" src="gmail.jpg">
+            <img alt="" id="lang_icons" src="linkedin.jpg">
         </div>
     </div>
-    <div [@pullIn]="onBioSection ? 'rightResting' : 'rightPull'" id="resume_pic_section">
-        <img [ngClass]="{'bounceObj' : onBioSection}" alt="" id="resume_pic"  src="">
+    <div [@toggleSlide]="{
+        value: onBioSection ? 'enter' : 'leave',
+        params: {
+            enterDestination: '0px',
+            leaveDestination: '100px'
+        }
+    }" id="resume_pic_section">
+        <img [ngClass]="{'bounceObj' : onBioSection}" alt="" id="resume_pic" src="portfoliopic.jpg">
     </div>
 </div>
-<button type="button" (click)="toggleOnBioSection()">{{onBioSection ? 'True' : 'False'}}</button>
