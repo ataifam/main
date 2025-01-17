@@ -1,33 +1,58 @@
-{% extends "main/base.html" %}
-{% block title %} Contact {% endblock %}
-
-{% block body %}
-
 {% if responded == False %}
-
-{% if messages %}
-{% for message in messages %}
-<div class="alert alert-warning" role="alert">
-    {{message}}
+<div class="contactme container justify-content-center bg-white border rounded shadow overflow-hidden mt-5 mb-5 hidden" id="main-section">
+    <form action="{% url 'main:base' %}" method="post">
+        {% csrf_token %}
+        <div class="row gy-xl-5 p-xl-5 p-2">
+            <h1 class="text-center">Contact</h1>
+            <div class="col-12 col-md-6">
+                <span class="form-label">
+                    {{ form.full_name.label_tag }}
+                </span>
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="bi bi-person-circle text-info"></i>
+                    </span>
+                    {{ form.full_name }}
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <span class="form-label">
+                    {{ form.email.label_tag }}
+                </span>
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="bi bi-envelope-fill text-info"></i>
+                    </span>
+                    {{ form.email }}
+                </div>
+            </div>
+            <div class="col-12">
+                <span class="form-label">
+                    {{ form.message.label_tag }}
+                </span>
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="bi bi-chat-square-text-fill text-info"></i>
+                    </span>
+                    {{ form.message }}
+                </div>
+            </div>
+            <center>
+                <div class="col-12">
+                    <span class="form-label">
+                        {{ form.captcha.label_tag }}
+                    </span>
+                    <div class="container">
+                        {{ form.captcha }}
+                    </div>
+                </div>
+            </center>
+            <div class="col-12">
+                <div class="d-grid">
+                    <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
-{% endfor %}
 {% endif %}
-
-<div class="bottom-container">
-    <center>
-        <h1>Contact me!</h1>
-        <hr width="94%">
-        <div class="home_panels form_panel">
-            <form action="{% url 'main:contact' %}" method="post" id="contact-form">
-                {% csrf_token %}
-                {{ form }}
-                <br>
-                <input type="submit">
-            </form>
-    </center>
-</div>
-{% else %}
-<h1 id="contact-form">Thank you for reaching out, {{name}}. We will be in touch!</h1>
-{% endif %}
-</div>
-{% endblock %}

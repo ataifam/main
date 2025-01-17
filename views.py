@@ -1,58 +1,46 @@
-from .forms import ResponseForm
-from django.http import HttpResponse
+from .forms import ContactForm
 from django.shortcuts import render, redirect
-from email.message import EmailMessage
 from django.contrib import messages
-import ssl
 import os
 from django.core.mail import BadHeaderError, send_mail
-from boto.s3.connection import S3Connection
 from decouple import config
 
 
-def home(request):
-    return render(request, "main/home.html", {})
-
-def resume(request):
-    return render(request, "main/resume.html", {})
-
-def projects(request):
-    return render(request, "main/projects.html", {})
-
-def contact(request):
-    form = ResponseForm()
+def base(request):
+    form = ContactForm()
 
     if "responded" not in request.session:
         request.session["responded"] = False
         request.session["name"] = None
 
     if request.method == "POST" and request.session["responded"] == False:
-        form = ResponseForm(request.POST)
+        form = ContactForm(request.POST)
         if form.is_valid():
-            fname = form.cleaned_data['fname']
-            lname = form.cleaned_data['lname']
+            full_name = form.cleaned_data['full_name']
             email = form.cleaned_data['email']
-            response = form.cleaned_data['response']
+            message = form.cleaned_data['message']
 
-            if fname and lname and email and response:
+            
+            if full_name and email and message:
                 try:
                     send_mail(
-                        "Website User Message: "+fname+" "+lname+lname,
-                        "Name: "+fname+" "+lname+", Email: "+email+", Message: "+response,
+                        "Website User Message: " + full_name,
+                        "Name: " + full_name + "\nEmail: " + email + "\nMessage: " + message,
                         email,
                         [str(os.environ.get('EMAIL_USER')),],
                         fail_silently=False,
                     )
                     request.session["responded"] = True
-                    request.session["name"] = fname
-                    redirect('main:contact')
+                    request.session["name"] = full_name
+                    messages.success(request, ("Thank you for your message, " + full_name + "! We'll be in touch!"))
+                    return redirect('main:base')
                     
                 # protect against header injection
                 except BadHeaderError:
                     messages.error(request, ("An error has occured! Please try again!"))
-                    return redirect('main:contact')
-          
-    return render(request, "main/contact.html", {
+                    return redirect('main:base')
+
+    return render(request, "main/base.html", {
         "form": form,
         "responded": request.session["responded"],
         "name": request.session["name"],

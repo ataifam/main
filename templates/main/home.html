@@ -1,65 +1,59 @@
-{% extends "main/base.html" %}
-{% block title %} Home {% endblock %}
-{% block body %}
 {% load static %}
-<div class="top-container">
-    
-    <div class="header">
-        <center>
-        <div class="intro">
-            <h1>Adam Taifouri</h1>
-        </div>
-        <div class="middle">
-            <h2>University of Maryland, College Park</h2>
-            <h2>Computer Science</h2>
-        </div>
-        <div class="end">
-            <h4>Class of 2026</h4>
-            <a href="mailto:iiadamx@gmail.com"><img class="icons" src="{% static 'main/images/gmail.png' %}"></a>
-            <a href="https://www.linkedin.com/in/adam-taifouri-860748185/"><img class="icons"
-                    src="{% static 'main/images/linkedin.png' %}"></a>
-            <a href="https://github.com/ataifam"><img class="icons" src="{% static 'main/images/github.png' %}"></a>
-            <h5>Making an impact through programming.</h5>
-        </div>
-        </center>
-   </div>
-    <img id="slideHolder" src="" />
-    
-</div>
-<div class="bottom-container">
-    <div id="bottom-content">
-        <div id="interests">
-            <div id="bottom-container-list">
-                <div id="interestList" align="center">
-                    <ul class="rectangle-list">
-                        <li class="interests" id="tech">Tech</li>
-                        <li class="interests" id="advocacy">Advocacy</li>
-                        <li class="interests" id="govt">Government</li>
-                        <li class="interests" id="wrestling">Sports</li>
-                        <li class="interests" id="dydx">Math</li>
-                    </ul>
+<div class="intro d-flex align-items-center justify-content-evenly vh-100 flex-wrap" id="main-section">
+    <div>
+        <img src="{% static 'main/portfoliopic.jpg' %}" class="bounceObj" id="portfolio_pic">
+    </div>
+    <div class="intro-text text-center mt-5">
+            <h1>Hi, my name is Adam!</h1>
+            <h5>I am a Computer Science student,
+                interested in Software Development and Cybersecurity!
+            </h5>
+            <div class="m-3">
+                <div class="d-flex justify-content-center">
+                    <a href="https://www.linkedin.com/in/adam-taifouri-860748185/" class="img-fluid icons">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" />
+                    </a>
+                    <a href="https://github.com/ataifam" class="img-fluid icons">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" />
+                    </a>
                 </div>
             </div>
-            <div id="onHoverPictures">
-                <img id="interest" src="{% static 'main/images/wrestling.png' %}" height="300px" width="400px">
-            </div>
-            <div id="moreInfo" class="infoText">
-                text here
-            </div>
-        </div>
-        <div class="home_panels">
-            <center>
-                <h1>About Me</h1>
-                <p>My name is Adam. I am a Computer Science student, studying at the University of Maryland.</p>
-                <br>
-                <p>Through this website, you can access my resume, projects, and contact me via the contact page!</p>
-                <br>
-                <p>I've always loved puzzles. As I encountered new and more complicated ones, I found Computer
-                    Science to be a useful and fascinating tool to solve them.</p>
-            </center>
-
         </div>
     </div>
 </div>
 
-{% endblock %}
+<div class="aboutme bg-body-secondary p-5 mb-5 hidden" id="main-section">
+    <h1 class="mb-3 text-center">About Me</h1>
+    <div class="row justify-content-evenly">
+        <div class="col align-items-center text-center">
+            <h3 class="collapse multi-collapse" id="multiCollapse1">Education</h3>
+            <a data-bs-toggle="collapse" href="#multiCollapse1" role="button" aria-expanded="false" aria-controls="multiCollapse1"><img class="interest_img rounded-circle shadow m-2" width="160" height="160" src="{% static 'main/terp.jpeg' %}"/></a>
+            <div class="collapse multi-collapse" id="multiCollapse1">
+                <p>Student at University of Maryland, College Park</p>
+                <p>Computer Science Major</p>
+                <p>Math Minor</p>
+                <p>Class of 2026</p>
+            </div>
+        </div>
+        <div class="col align-items-center text-center">
+            <h3 class="collapse multi-collapse" id="multiCollapse2">Coursework</h3>
+            <a data-bs-toggle="collapse" href="#multiCollapse2" role="button" aria-expanded="false" aria-controls="multiCollapse2"><img class="interest_img rounded-circle shadow m-2" width="160" height="160" src="{% static 'main/coursework.jpeg' %}"/></a>
+            <div class="collapse multi-collapse" id="multiCollapse2">
+                <p>Advanced Data Structures</p>
+                <p>Algorithm Design and Analysis</p>
+                <p>Compilers</p>
+                <p>Applied Statistics</p>
+            </div>
+        </div>
+        <div class="col align-items-center text-center">
+            <h3 class="collapse multi-collapse" id="multiCollapse3">Interests</h3>
+            <a data-bs-toggle="collapse" href="#multiCollapse3" role="button" aria-expanded="false" aria-controls="multiCollapse3"><img class="interest_img rounded-circle shadow m-2" width="160" height="160" src="{% static 'main/mountain.jpeg' %}"/></a>
+            <div class="collapse multi-collapse" id="multiCollapse3">
+                <p>Software Engineering</p>
+                <p>System Design</p>
+                <p>Video Games</p>
+                <p>Football & Wrestling</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,34 +6,47 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %}</title>
-    <script type="text/javascript" src="{% static 'main/script.js' %}" integrity="sha384-o7ahzSMnfXzJVT5J3Gs8s63278CiH7l2DIFhmx6sUiKPOw+WtnC5TqBVuXCKBCnX" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{% static 'main/style.css' %}" integrity="sha384-QHALu8ZxN7dep5ukyeAy1VSvlGvcSxoLXr3tTKAjrnbcYw6D5WwSoMxdvDmtCm3n" crossorigin="anonymous">
+    <script type="text/javascript" src="{% static 'main/scriptv2.js' %}" 
+        integrity="sha384-YbboAgQuiX4Tk5d4Q+2nF+FMy9lMnoICVge5RpyxX/8IcYuS1QpoIn3FwqlRWsTg" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+        integrity="sha384-Ay26V7L8bsJTsX9Sxclnvsn+hkdiwRnrjZJXqKmkIDobPgIIWBOVguEcQQLDuhfN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'main/stylev2.css' %}"
+        integrity="sha384-C8v+Jkueo0rU02GS7iGnwqhP9viI3c2Ku64OAkdDzjbrNcdIpOYwfqngR5vAwg62" crossorigin="anonymous">
 </head>
 
 <body>
-    <div id="menucategory">
-        <div id="menu1" class="menu"><a href="{% url 'main:home' %}">
-                <h3><span>HOME</span></h3>
-            </a>
-        </div>
-        <div id="menu2" class="menu"><a href="{% url 'main:resume' %}">
-                <h3><span>RESUME</span></h3>
-            </a>
-        </div>
-        <div id="menu3" class="menu"><a href="{% url 'main:projects' %}">
-                <h3><span>PROJECTS</span></h3>
-            </a>
-        </div>
-        <div id="menu4" class="menu"><a href="{% url 'main:contact' %}">
-                <h3><span>CONTACT</span></h3>
-            </a>
-        </div>
-        {% block body %} {% endblock body %}
-        <div class="footer">
-            <p> </p>
-        </div>
+    {% if form.errors %}
+    <div class="alert alert-danger alert-dismissible fixed-top fade show mt-5" role="alert">
+        <h5>Please correct the following errors in contact form:</h5>
+        {% for error in form.errors.values %}
+        <strong>{{error}}</strong>
+        {% endfor %}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-
+    {% elif messages %}
+    <div class="alert alert-warning alert-dismissible fixed-top fade show mt-5" role="alert">
+        {% for message in messages %}
+        <strong>{{message}}</strong>
+        {% endfor %}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+    <div>
+        {% include "main/home.html" %}
+        {% include "main/resume.html" %}
+        {% include "main/projects.html" %}
+        {% include "main/contact.html" %}
+    </div>
+    <footer class="footer fixed-bottom bg-light">
+        <p></p>
+    </footer>
+    
 </body>
 
 </html>

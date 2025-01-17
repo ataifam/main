@@ -1,45 +1,8 @@
 from django import forms
 from captcha.fields import CaptchaField
 
-class ResponseForm(forms.Form):
-    fname = forms.CharField(required=False, widget=forms.widgets.Textarea(attrs={
-        "placeholder": "First name",
-        "required": True,
-        "rows": 2,
-        "class": "form-textarea",
-        }),
-        label='',
-        min_length=1, 
-        max_length=25,
-    )
-    lname = forms.CharField(required=False, widget=forms.widgets.Textarea(attrs={
-        "placeholder": "Last name",
-        "required": True,
-        "rows": 2,
-        "class": "form-textarea",
-        }),
-        label='',
-        min_length=1, 
-        max_length=25
-    )
-    email = forms.EmailField(required=False, widget=forms.widgets.Textarea(attrs={
-        "placeholder": "Email",
-        "required": True,
-        "rows": 2,
-        "class": "form-textarea",
-        }),
-        label='',
-        min_length=3, 
-        max_length=25
-    )
-    response = forms.CharField(required=False, widget=forms.widgets.Textarea(attrs={
-        "placeholder": "Message",
-        "required": True,
-        "rows": 2,
-        "class": "form-textarea",
-        }),
-        label='',
-        min_length=1, 
-        max_length=100
-    )
+class ContactForm(forms.Form):
+    full_name = forms.CharField(required=True, min_length=1, max_length=25, widget=forms.TextInput(attrs={'class': "form-control"}))
+    email = forms.EmailField(required=True, min_length=1, max_length=25, widget=forms.EmailInput(attrs={'class': "form-control"}))
+    message = forms.CharField(required=True, min_length=1, max_length=100, widget=forms.Textarea(attrs={'class': "form-control"}))
     captcha = CaptchaField()

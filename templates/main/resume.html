@@ -1,81 +1,111 @@
-{% extends "main/base.html" %}
-{% block title %} Resume {% endblock title%}
-{% load static %}
-
-{% block body %}
-
-<br>
-<div class="bottom-container">
-    <div class="resume_header">
-        <div>
-            <img id="resume_pic" src="{% static 'main/images/resume_pic1.png' %}">
+<div class="experience container hidden" id="main-section">
+    <center><h1>Experience</h1></center>
+    
+    <div class="item" data-bs-toggle="collapse" href="#multiCollapse4" role="button" aria-expanded="false" aria-controls="multiCollapse4">
+        <div class="">
+            <div class="d-flex justify-content-between">
+                <h3>Software Engineering Intern</h3>
+                <div class="text-secondary">June 2024 - August 2024</div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <div class="text-primary-emphasis mb-2"><i class="bi bi-geo-alt-fill"></i> Mettler Toledo Autochem, Columbia MD</div>
+                <i class="multi-collapse collapse show bi bi-three-dots float-end text-primary pe-1" id="multiCollapse4"></i>
+            </div>
+            
         </div>
-        <div id="resume_bio">
-            <center>
-                <h1>Hi, my name is Adam!</h1>
-                <p>I am a Computer Science student,
-                    interested in Software Development and Cybersecurity!
-                </p>
-                <img class="lang_icons" src="{% static 'main/images/python.png' %}">
-                <img class="lang_icons" src="{% static 'main/images/java.png' %}">
-                <img class="lang_icons" src="{% static 'main/images/js.png' %}">
-                <br>
+        <div class="collapse multi-collapse" id="multiCollapse4">
+            <ul>
+                <li>
+                    Worked in C# .NET and WPF to implement new features, bug resolutions, and UI/UX updates for the iC Customer
+                    Software Suite, improving the visualization, collection, and reporting of live scientific experiment data
+                </li>
+                <li>
+                    Supported testing on a new probe-based imaging instrument by implementing an architectural design and UI
+                    component update to an existing internal testing tool
+                </li>
+                <li>
+                    Wrote and utilized documentation, unit tests, and UML diagrams for MVVM and SOLID based applications
+                </li>
+            </ul>
         </div>
     </div>
-    <div class="resume_bottom">
-        <h2>Awards
-            <hr width="96%">
-        </h2>
-        <div id="resume_awards">
-            <div>Anne Arundel County Executive Youth Leader Award</div>
-            <div>City of Annapolis Community Leadership Citation</div>
-        </div>
-
-        <h2>Clubs
-            <hr width="96%">
-        </h2>
-        <div id="resume_clubs">
-            <div>Google Developer Student Club</div>
-            <div>UMD Cybersecurity Club</div>
-        </div>
-
-        <h2>Experiences
-            <hr width="96%">
-        </h2>
-        <div id="resume_exp">
-            <div>
-                <div>
-                    <h2>Community Assistant</h2>
-                    <span>University of Maryland, ResLife</span>
-                </div>
-                <ul>
-                    <li>Served as first point-of-contact for residents, staff, and visitors to acquire campus resources,
-                        support, and emergency assistance</li>
-                    <li>establish community through socializing with residents, advising them on ResLife policies, and
-                        assisting in the preparation of hall activities</li>
-                    <li>perform administrative tasks relating to community keys and packages, such as audits and
-                        distribution</li>
-                    <li>process lock-core-changes, activation and deactivation of keys, notify residents of new packages
-                        and important deadlines</li>
-                    <li>securing sensitive information of residents and access to community buildings from unauthorized
-                        persons</li>
-                </ul>
+    
+    <div class="item" data-bs-toggle="collapse" href="#multiCollapse5" role="button" aria-expanded="false" aria-controls="multiCollapse5">
+        <div class="">
+            <div class="d-flex justify-content-between">
+                <h3 class="">Community Assistant</h3>
+                <div class="text-secondary">August 2022 - June 2024</div>
             </div>
-            <div>
-                <div>
-                    <h2>County Executive's Intern</h2>
-                    <span>Anne Arundel County Government</span>
-                </div>
-                <ul>
-                    <li>Planned, organized, and executed youth engagement events sponsored by the county government</li>
-                    <li>led communications and assisted constituents with inquiries related to the Office of Special
-                        Projects</li>
-                    <li>prepared correspondence</li>
-                    <li>managed, updated, and organized government program databases</li>
-                    <li>co-organized and co-starred in a AACO Health youth vaccination campaign</li>
-                </ul>
+            <div class="d-flex justify-content-between">
+                <div class="text-primary-emphasis mb-2"><i class="bi bi-geo-alt-fill"></i> University of Maryland, College Park MD</div>
+                <i class="multi-collapse collapse show bi bi-three-dots float-end text-primary pe-1" id="multiCollapse5"></i>
             </div>
+            
+        </div>
+        <div class="collapse multi-collapse" id="multiCollapse5">
+            <ul>
+                <li>
+                    Served as first point-of-contact for residents, staff, and visitors to acquire campus resources, support, and emergency assistance
+                </li>
+                <li>
+                    Performed administrative tasks related to resident keys and packages, including audits and distribution
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="item" data-bs-toggle="collapse" href="#multiCollapse6" role="button" aria-expanded="false" aria-controls="multiCollapse6">
+        <div class="">
+            <div class="d-flex justify-content-between">
+                <h3 class="">County Executive's Office Intern</h3>
+                <div class="text-secondary">August 2021 - June 2022</div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <div class="text-primary-emphasis mb-2"><i class="bi bi-geo-alt-fill"></i> Anne Arundel County Government, Annapolis MD</div>
+                <i class="multi-collapse collapse show bi bi-three-dots float-end text-primary pe-1" id="multiCollapse6"></i>
+            </div>
+            
+        </div>
+        <div class="collapse multi-collapse" id="multiCollapse6">
+            <ul>
+                <li>
+                    Increased applications to our youth engagement program by 50+ following the planning and execution of two 
+                    successful events introducing participants to vital government services
+                </li>
+                <li>
+                    Prepared correspondence, managed government program databases, and co-organized and co-starred in a AACO Health 
+                    youth vaccination campaign
+                </li>
+            </ul>
         </div>
     </div>
 </div>
-{% endblock %}
+
+<section class="langs bg-body-secondary mt-5 pt-1 pb-1 hidden" id="main-section">
+    <div class="m-5">
+        <h2>Languages</h2>
+        <div class="d-flex justify-content-evenly">
+            <img class="img-fluid tools_icons" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" />
+            <img class="img-fluid tools_icons" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg" />
+            <img class="img-fluid tools_icons" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" />
+            <img class="img-fluid tools_icons" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" />
+            <img class="img-fluid tools_icons" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" />
+            <img class="img-fluid tools_icons" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
+            <img class="img-fluid tools_icons" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ocaml/ocaml-original-wordmark.svg" />
+            <img class="img-fluid tools_icons" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg" />
+        </div>
+    </div>
+    
+    
+    <div class="m-5">
+        <h2>Libraries, Frameworks, & Development Tools</h2>
+        <div class="d-flex justify-content-evenly">
+            <img class="img-fluid tools_icons" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain-wordmark.svg" />
+            <img class="img-fluid tools_icons" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg" />
+            <img class="img-fluid tools_icons" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg" />
+            <img class="img-fluid tools_icons" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" />
+            <img class="img-fluid tools_icons" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg" />
+            <img class="img-fluid tools_icons" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original-wordmark.svg" />
+            <img class="img-fluid tools_icons" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original-wordmark.svg" />
+        </div>
+    </section>

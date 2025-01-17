@@ -1,62 +1,64 @@
-{% extends "main/base.html" %}
-{% block title %} Projects {% endblock title%}
-
-{% block body %}
-<div class="bottom-container">
-
-    <center>
-        <h1>Projects</h1>
-        <hr width="94%">
-    </center>
-
-    <div id="project-display">
-        <div class="project_panels">
-            <center>
-                <h3>Rest API Game</h3>
-            </center>
-            <ul>
-                <li>Hangman styled minigame</li>
-                <li>Django Rest API, Fetch, HTML, CSS, React.js, Bootstrap</li>
-                <li>
-                    This minigame uses Django on the backend and React.js on the frontend. Users make
-                    requests via Django Rest API for a randomly selected word of chosen length from a text file in S3 Bucket.
-                    React state passed between multiple routes, providing a multi-layered aspect to the game.
-                </li>
-            </ul>
-            <center><a href="{% url 'hangman:hangman-front' %}"><button>Go</button></center></a>
+{% load static %}
+<section class="projects slider-wrapper mt-5 hidden" id="main-section">
+    <h1 class="mb-3 text-center">Projects</h1>
+    <div id="carouselExampleDark" class="carousel carousel-dark slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-
-        <div class="project_panels">
-            <center>
-                <h3>Connectify!</h3>
-            </center>
-            <ul>
-                <li>LinkedIn Inspired Social Media Website</li>
-                <li>Django, Python, SQLite, Bootstrap</li>
-                <li>
-                    Utilzied Django's authentication utility to implement a social-media based site that allows users to communicate,
-                    customize their profile, and give feedback to other users' posts. CRUD operations are leveraged to ensure the site
-                    can execute all functionality commonly associated with social media sites, like deleting, voting, commenting, and creating posts.
-                    Queries are made to PostgreSQL DB using Django's object oriented database abstraction, and Django templating language is leveraged to make dynamic queries
-                    to the DB on specific HTML pages.
-                </li>
-            </ul>
-            <center><a href="{% url 'social:register' %}"><button>Go</button></a></center>
+        <div class="slides-container carousel-inner">
+            <div class="carousel-item pb-5 active" data-bs-interval="10000">
+                <img src="{% static 'main/classmanager.png' %}" class="d-block w-100 img-fluid shadow" alt="...">
+                <div>
+                    <center>
+                        <h3 class="pt-3">ClassManager</h3>
+                        <p>a management simulation game, allowing users control school operations to increase prestige</p>
+                        <p>Python, Django, Bootstrap, Django ORM, and CSS/JS</p>
+                    </center>
+                    <div class="d-flex justify-content-evenly">
+                        <a href="{% url 'ClassManager:home' %}" type="button" class="btn btn-primary"><i class="bi bi-arrow-up-right-circle"></i> Go to ClassManager</a>
+                        <a href="https://github.com/ataifam/Class-Manager" type="button" class="btn btn-warning me-2"><i class="bi bi-github"></i> See Code</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item pb-5" data-bs-interval="2000">
+                <img src="{% static 'main/connectify.png' %}" class="d-block w-100 img-fluid shadow" alt="...">
+                    <div>
+                        <center>
+                            <h3 class="pt-3">Connectify</h3>
+                            <p>a LinkedIn-inspired social media site, enabling users to stay connected with peers</p>
+                            <p>Python, Django, Bootstrap, Django ORM</p>
+                        </center>
+                        <div class="d-flex justify-content-evenly">
+                            <a href="{% url 'social:home' %}" type="button" class="btn btn-primary"><i class="bi bi-arrow-up-right-circle"></i> Go to Connectify</a>
+                            <a href="https://github.com/ataifam/connectify" type="button" class="btn btn-warning"><i class="bi bi-github"></i> See Code</a> 
+                        </div>
+                    </div>
+            </div>
+            <div class="carousel-item pb-5">
+                <img src="{% static 'main/hangman.png' %}" class="d-block w-100 img-fluid shadow" alt="...">
+                <div>
+                    <center>
+                        <h3 class="pt-3">Hangman Game</h3>
+                        <p>a hangman-styled mini-game using a React.js front-end and Django back-end</p>
+                        <p>React.js, Bootstrap, Fetch, Django REST API, Requests</p>
+                    </center>
+                    
+                    <div class="d-flex justify-content-evenly">
+                        <a href="{% url 'hangman:hangman-front' %}" type="button" class="btn btn-primary"><i class="bi bi-arrow-up-right-circle"></i> Go to Hangman</a>
+                        <a href="https://github.com/ataifam/hangman" type="button" class="btn btn-warning"><i class="bi bi-github"></i> See Code</a>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="project_panels">
-            <center>
-                <h3>University Projects</h3>
-            </center>
-            <ul>
-                <li>Programs developed in accordance with specifications</li>
-                <li>Java programming language</li>
-                <li>Programs demonstrate my implementation of object-oriented design, multithreading, event-driven
-                    programming, and data structure design to solve real-world problems.</li>
-                <li>Made available upon request to ensure compliance with University academic integrity policies.</li>
-            </ul>
-        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-</div>
-
-{% endblock %}
+</section>
