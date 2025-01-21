@@ -1,12 +1,10 @@
-
 document.addEventListener("DOMContentLoaded", () => {
     if (window.innerWidth >= 650) {
         const sections = document.querySelectorAll("#main-section");
     
         const observerOptions = {
             root: null,
-            threshold: 0.3,
-            rootMargin: "-100px",
+            threshold: 0.3
         };
     
         const sectionObserver = new IntersectionObserver(callBackFunction, observerOptions);

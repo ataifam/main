@@ -1,11 +1,11 @@
 {% if responded == False %}
-<div class="contactme container justify-content-center bg-white border rounded shadow overflow-hidden mt-5 mb-5 hidden" id="main-section">
+<div id="main-section" class="contactme py-4 px-5 mx-auto my-5 text-center bg-white border rounded shadow hidden">
+    <h1>Contact</h1>
     <form action="{% url 'main:base' %}" method="post">
         {% csrf_token %}
-        <div class="row gy-xl-5 p-xl-5 p-2">
-            <h1 class="text-center">Contact</h1>
-            <div class="col-12 col-md-6">
-                <span class="form-label">
+        <div class="row flex-wrap">
+            <div class="col-lg-6 py-2">
+                <span class="form-label float-start">
                     {{ form.full_name.label_tag }}
                 </span>
                 <div class="input-group">
@@ -15,8 +15,8 @@
                     {{ form.full_name }}
                 </div>
             </div>
-            <div class="col-12 col-md-6">
-                <span class="form-label">
+            <div class="col-lg-6 py-2">
+                <span class="form-label float-start">
                     {{ form.email.label_tag }}
                 </span>
                 <div class="input-group">
@@ -26,8 +26,10 @@
                     {{ form.email }}
                 </div>
             </div>
-            <div class="col-12">
-                <span class="form-label">
+        </div>
+        <div class="row py-2">
+            <div class="col">
+                <span class="form-label float-start">
                     {{ form.message.label_tag }}
                 </span>
                 <div class="input-group">
@@ -37,17 +39,19 @@
                     {{ form.message }}
                 </div>
             </div>
-            <center>
-                <div class="col-12">
-                    <span class="form-label">
-                        {{ form.captcha.label_tag }}
-                    </span>
-                    <div class="container">
-                        {{ form.captcha }}
-                    </div>
+        </div>
+        <div class="row py-2">
+            <div class="col">
+                <span class="form-label">
+                    {{ form.captcha.label_tag }}
+                </span>
+                <div class="container">
+                    {{ form.captcha }}
                 </div>
-            </center>
-            <div class="col-12">
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="col">
                 <div class="d-grid">
                     <button class="btn btn-primary btn-lg" type="submit">Submit</button>
                 </div>

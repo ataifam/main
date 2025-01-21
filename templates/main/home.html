@@ -1,22 +1,21 @@
 {% load static %}
-<div class="intro d-flex align-items-center justify-content-evenly vh-100 flex-wrap" id="main-section">
+<div class="intro d-flex align-items-center justify-content-evenly flex-wrap hidden" id="main-section">
     <div>
         <img src="{% static 'main/portfoliopic.jpg' %}" class="bounceObj" id="portfolio_pic">
     </div>
-    <div class="intro-text text-center mt-5">
-            <h1>Hi, my name is Adam!</h1>
-            <h5>I am a Computer Science student,
-                interested in Software Development and Cybersecurity!
-            </h5>
-            <div class="m-3">
-                <div class="d-flex justify-content-center">
-                    <a href="https://www.linkedin.com/in/adam-taifouri-860748185/" class="img-fluid icons">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" />
-                    </a>
-                    <a href="https://github.com/ataifam" class="img-fluid icons">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" />
-                    </a>
-                </div>
+    <div class="intro-text text-center">
+        <h1>Hi, my name is Adam!</h1>
+        <h5>I am a Computer Science student,
+            interested in Software Development and Cybersecurity!
+        </h5>
+        <div class="m-3">
+            <div class="d-flex justify-content-center">
+                <a class="p-2" href="https://www.linkedin.com/in/adam-taifouri-860748185/">
+                    <img class="img-fluid icons" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" />
+                </a>
+                <a class="p-2" href="https://github.com/ataifam">
+                    <img class="img-fluid icons" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" />
+                </a>
             </div>
         </div>
     </div>
@@ -25,34 +24,58 @@
 <div class="aboutme bg-body-secondary p-5 mb-5 hidden" id="main-section">
     <h1 class="mb-3 text-center">About Me</h1>
     <div class="row justify-content-evenly">
-        <div class="col align-items-center text-center">
-            <h3 class="collapse multi-collapse" id="multiCollapse1">Education</h3>
-            <a data-bs-toggle="collapse" href="#multiCollapse1" role="button" aria-expanded="false" aria-controls="multiCollapse1"><img class="interest_img rounded-circle shadow m-2" width="160" height="160" src="{% static 'main/terp.jpeg' %}"/></a>
-            <div class="collapse multi-collapse" id="multiCollapse1">
-                <p>Student at University of Maryland, College Park</p>
-                <p>Computer Science Major</p>
-                <p>Math Minor</p>
-                <p>Class of 2026</p>
+        <div class="col flip-card m-2">
+            <div class="flip-card-inner">
+                <div class="flip-card-front shadow-lg rounded text-center align-content-center">
+                    <img class="interest_img rounded-circle shadow m-2" src="{% static 'main/terp.jpeg' %}"/>
+                    <h2 class="py-2">Education</h2>
+                </div>
+                <div class="flip-card-back shadow-lg rounded text-center align-content-center">
+                    <div class="aboutme-col-text">
+                        <p>Student at University of Maryland, College Park</p>
+                        <p>Computer Science Major</p>
+                        <p>Math Minor</p>
+                        <p>3.9 GPA</p>
+                        <p>Class of 2026</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col align-items-center text-center">
-            <h3 class="collapse multi-collapse" id="multiCollapse2">Coursework</h3>
-            <a data-bs-toggle="collapse" href="#multiCollapse2" role="button" aria-expanded="false" aria-controls="multiCollapse2"><img class="interest_img rounded-circle shadow m-2" width="160" height="160" src="{% static 'main/coursework.jpeg' %}"/></a>
-            <div class="collapse multi-collapse" id="multiCollapse2">
-                <p>Advanced Data Structures</p>
-                <p>Algorithm Design and Analysis</p>
-                <p>Compilers</p>
-                <p>Applied Statistics</p>
+        <div class="col flip-card m-2">
+            <div class="flip-card-inner">
+                <div class="flip-card-front shadow-lg rounded text-center align-content-center">
+                    <img class="interest_img rounded-circle shadow m-2" src="{% static 'main/coursework.jpeg' %}"/>
+                    <h2 class="py-2">Coursework</h2>
+                </div>
+                <div class="flip-card-back shadow-lg rounded text-center align-content-center">
+                    <div class="aboutme-col-text">
+                        <p>Advanced Data Structures</p>
+                        <p>Advanced Algorithm Design and Analysis</p>
+                        <p>Compilers</p>
+                        <p>Applied Statistics</p>
+                        <p>Data Science</p>
+                        <p>Calculus I, II, III</p>
+                        <p>Linear Algebra</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col align-items-center text-center">
-            <h3 class="collapse multi-collapse" id="multiCollapse3">Interests</h3>
-            <a data-bs-toggle="collapse" href="#multiCollapse3" role="button" aria-expanded="false" aria-controls="multiCollapse3"><img class="interest_img rounded-circle shadow m-2" width="160" height="160" src="{% static 'main/mountain.jpeg' %}"/></a>
-            <div class="collapse multi-collapse" id="multiCollapse3">
-                <p>Software Engineering</p>
-                <p>System Design</p>
-                <p>Video Games</p>
-                <p>Football & Wrestling</p>
+        <div class="col flip-card m-2">
+            <div class="flip-card-inner">
+                <div class="flip-card-front shadow-lg rounded text-center align-content-center">
+                    <img class="interest_img rounded-circle shadow m-2" src="{% static 'main/mountain.jpeg' %}"/>
+                    <h2 class="py-2">Interests</h2>
+                </div>
+                <div class="flip-card-back shadow-lg rounded text-center align-content-center">
+                    <div class="aboutme-col-text">
+                        <p>Application Development</p>
+                        <p>System Design</p>
+                        <p>Video Games</p>
+                        <p>Football</p>
+                        <p>Wrestling</p>
+                        <p>Cooking</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
